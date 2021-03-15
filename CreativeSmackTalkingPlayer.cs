@@ -17,7 +17,6 @@ namespace ShootingDice
 
         //override play() to include below code. ConsoleWriteLine the selected taunt, then run play().
         public static int number = new Random().Next(taunts.Count);
-
         string theTaunt = taunts[number];
 
 
