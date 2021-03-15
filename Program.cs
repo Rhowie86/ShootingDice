@@ -34,12 +34,18 @@ namespace ShootingDice
             Player defHuman = new HumanPlayer();
             defHuman.Name = "I AM HUMAN!";
 
+            Player creativeSmackTalk = new CreativeSmackTalkingPlayer();
+            creativeSmackTalk.Name = "Creative Jerk";
+
+            Player soreLoser = new SoreLoserPlayer();
+            soreLoser.Name = "CRY BABY";
+
             // player1.Play(large);
 
             Console.WriteLine("-------------------");
 
             List<Player> players = new List<Player>() {
-                player1, player2, player3, large, smackTalkingPlayer, defHuman
+                player1, player2, player3, large, smackTalkingPlayer, defHuman, creativeSmackTalk, soreLoser
             };
 
             PlayMany(players);
@@ -70,7 +76,15 @@ namespace ShootingDice
                 // Make adjacent players play noe another
                 Player player1 = shuffledPlayers[i];
                 Player player2 = shuffledPlayers[i + 1];
-                player1.Play(player2);
+                try
+                {
+                    player1.Play(player2);
+                }
+                catch (ArithmeticException ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+
             }
         }
     }
